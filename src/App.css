@@ -1,17 +1,58 @@
+:root {
+  --main-bg-color: #121212;
+  --teal: #3aa1bf;
+  --light-teal: #83c5be;
+  --turquoise: #56d9cd;
+  --pink: #f2385a;
+  --orange: #f5a503;
+  --smoke: #f0efeb;
+  --regular-font: 1.2rem;
+}
+
 .App {
   text-align: center;
-  background-color: #333333;
+  background-color: var(--main-bg-color);
   height: 100vh;
   display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+
+header {
+  display: grid;
   place-items: center;
+  font-weight: bold;
+  font-size: 5rem;
+  /*text-shadow:
+      1.5px 1.5px 0 #333,
+      0px 1.5px 0 #333,
+      -1.5px -1.5px 0 #333,
+      -1.5px -1.5px 0 #333,
+      -1.5px 1.5px 0 #333,
+      1.5px -1.5px 0 #333,
+      0.7778174593px 0.7778174593px 0 #aaaaaa,
+      1.5556349186px 1.5556349186px 0 #aaaaaa,
+      2.3334523779px 2.3334523779px 0 #aaaaaa,
+      3.1112698372px 3.1112698372px 0 #aaaaaa,
+      3.8890872965px 3.8890872965px 0 #aaaaaa,
+      4.6669047558px 4.6669047558px 0 #aaaaaa,
+      5.4447222151px 5.4447222151px 0 #aaaaaa,
+      6.2225396744px 6.2225396744px 0 #aaaaaa,
+      7.0003571337px 7.0003571337px 0 #aaaaaa,
+      7.7781745931px 7.7781745931px 0 #aaaaaa;*/
+}
+
+main {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 5fr 2fr 1fr;
 }
 
 .card-container {
   display: grid;
-  background-color: #f0efeb;
+  background-color: var(--smoke);
   height: 350px;
-  width: 250px;
-  border-radius: 5%;
+  width: 270px;
+  border-radius: 4%;
   overflow: hidden;
 }
 
@@ -19,12 +60,65 @@
   font-size: 1.5rem;
   font-weight: 500;
   padding: 1rem;
-  background-color: #83c5be;
+  background-color: var(--light-teal);
   display: grid;
   place-items: center; 
 }
 
 .card-subtitle {
-  font-size: 1.1rem;
+  font-size: var(--regular-font);
   padding: 1rem; 
+}
+
+button {
+  background-color: var(--smoke);
+  padding: 10px;
+  border: none;
+  font-size: var(--regular-font);
+  border-radius: 5%;
+}
+
+.text {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke 6s infinite linear;
+  animation: stroke 6s infinite linear;
+}
+.text:nth-child(5n + 1) {
+  stroke: var(--pink);
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: var(--orange);
+  -webkit-animation-delay: -2.4s;
+  animation-delay: -2.4s;
+}
+.text:nth-child(5n + 3) {
+  stroke: var(--smoke);
+  -webkit-animation-delay: -3.6s;
+  animation-delay: -3.6s;
+}
+.text:nth-child(5n + 4) {
+  stroke: var(--turquoise);
+  -webkit-animation-delay: -4.8s;
+  animation-delay: -4.8s;
+}
+.text:nth-child(5n + 5) {
+  stroke: var(--teal);
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+ }
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+ }
 }
