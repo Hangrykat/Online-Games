@@ -21,7 +21,7 @@ function GameTimer() {
                     <div className="timer-controls">
                         <div className="timer-control"><VscDebugStart onClick={start}/></div>
                         <div className="timer-control"><VscDebugPause onClick={pause}/></div>
-                        <div className="timer-control"><VscDebugRestart onClick={reset}/></div>
+                        <div className="timer-control"><VscDebugRestart onClick={() => {pause(); reset();}}/></div>
                     </div>
                   </IconContext.Provider>
               </React.Fragment>

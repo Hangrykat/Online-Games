@@ -76,7 +76,7 @@ header {
 main {
   display: grid;
   place-items: center;
-  grid-template-rows: 7fr 4fr;
+  grid-template-rows: 7fr 5fr;
 }
 
 /*  Taboo Cards  */
