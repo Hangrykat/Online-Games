@@ -1,7 +1,7 @@
 import React from 'react'
 import Timer from 'react-compound-timer'
 import { IconContext } from "react-icons";
-import { VscDebugStart, VscDebugPause, VscDebugContinue, VscDebugRestart } from 'react-icons/vsc'
+import { VscDebugStart, VscDebugPause, VscDebugRestart } from 'react-icons/vsc'
 
 function GameTimer() {
 
@@ -11,7 +11,7 @@ function GameTimer() {
           initialTime={0}
           startImmediately={false}
         >
-          {({ start, resume, pause, reset}) => (
+          {({ start, pause, reset}) => (
               <React.Fragment>
                   <div className="timer-display">
                       <div className="timer-digit"><Timer.Minutes />  m</div>
@@ -21,7 +21,6 @@ function GameTimer() {
                     <div className="timer-controls">
                         <div className="timer-control"><VscDebugStart onClick={start}/></div>
                         <div className="timer-control"><VscDebugPause onClick={pause}/></div>
-                        <div className="timer-control"><VscDebugContinue onClick={resume}/></div>
                         <div className="timer-control"><VscDebugRestart onClick={reset}/></div>
                     </div>
                   </IconContext.Provider>
