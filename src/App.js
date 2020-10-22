@@ -10,15 +10,6 @@ function App() {
   function nextCard() {    
     setRandomIndex(Math.floor(Math.random()*taboos.length));    
   }
-  {/* PLAIN JS
-    let randomIndex = (Math.floor(Math.random()*taboos.length))
-
-    function nextCard() {
-      let newIndex = Math.floor(Math.random()*taboos.length);
-      randomIndex = newIndex;
-      console.log(newIndex)
-      return newIndex;
-    }*/}
   return (
     <div className="App">
       <header>
