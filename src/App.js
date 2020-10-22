@@ -3,7 +3,6 @@ import taboos from './data/taboos'
 import Card from './components/Card'
 import GameTimer from './components/GameTimer'
 import './App.css';
-import characters from './data/characters';
 
 function App() {
   const [randomIndex, setRandomIndex] = useState(0)
