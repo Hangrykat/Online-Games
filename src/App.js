@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import taboos from './data/taboos'
 import Card from './components/Card'
-import Button from './components/Button'
+import GameTimer from './components/GameTimer'
 import './App.css';
 
 function App() {
@@ -34,11 +34,15 @@ function App() {
         </svg>
       </header>      
       <main>
-        <Card
-          word={taboos[randomIndex].word}
-          tabooWords={taboos[randomIndex].tabooWords}
-        />
-        <Button label="Next Card" onClick={() => {nextCard()}} />
+        <div className="card-display-container">
+        <div className="next-button"></div>
+          <Card
+            word={taboos[randomIndex].word}
+            tabooWords={taboos[randomIndex].tabooWords}
+          />
+          <div className="next-button" onClick={() => {nextCard()}}>&gt;</div>
+        </div>
+        <GameTimer />
       </main>
     </div>
   );

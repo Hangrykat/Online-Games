@@ -6,7 +6,11 @@
   --pink: #f2385a;
   --orange: #f5a503;
   --smoke: #f0efeb;
+  --large-font: 1.5rem;
   --regular-font: 1.2rem;
+  --large-size: 1.5rem;
+  --regular-size: 1rem;
+  --small-size: 0.5rem;
 }
 
 .App {
@@ -17,67 +21,13 @@
   grid-template-rows: 1fr 4fr;
 }
 
+/*  Taboo Header  */
 header {
   display: grid;
   place-items: center;
   font-weight: bold;
-  font-size: 5rem;
-  /*text-shadow:
-      1.5px 1.5px 0 #333,
-      0px 1.5px 0 #333,
-      -1.5px -1.5px 0 #333,
-      -1.5px -1.5px 0 #333,
-      -1.5px 1.5px 0 #333,
-      1.5px -1.5px 0 #333,
-      0.7778174593px 0.7778174593px 0 #aaaaaa,
-      1.5556349186px 1.5556349186px 0 #aaaaaa,
-      2.3334523779px 2.3334523779px 0 #aaaaaa,
-      3.1112698372px 3.1112698372px 0 #aaaaaa,
-      3.8890872965px 3.8890872965px 0 #aaaaaa,
-      4.6669047558px 4.6669047558px 0 #aaaaaa,
-      5.4447222151px 5.4447222151px 0 #aaaaaa,
-      6.2225396744px 6.2225396744px 0 #aaaaaa,
-      7.0003571337px 7.0003571337px 0 #aaaaaa,
-      7.7781745931px 7.7781745931px 0 #aaaaaa;*/
+  font-size: 5.5rem;
 }
-
-main {
-  display: grid;
-  place-items: center;
-  grid-template-rows: 5fr 2fr 1fr;
-}
-
-.card-container {
-  display: grid;
-  background-color: var(--smoke);
-  height: 350px;
-  width: 270px;
-  border-radius: 4%;
-  overflow: hidden;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  padding: 1rem;
-  background-color: var(--light-teal);
-  display: grid;
-  place-items: center; 
-}
-
-.card-subtitle {
-  font-size: var(--regular-font);
-  padding: 1rem; 
-}
-
-button {
-  background-color: var(--smoke);
-  padding: 10px;
-  border: none;
-  font-size: var(--regular-font);
-  border-radius: 5%;
-}
-
 .text {
   fill: none;
   stroke-width: 3;
@@ -121,4 +71,152 @@ button {
   100% {
     stroke-dashoffset: -400;
  }
+}
+
+main {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 7fr 4fr;
+}
+
+/*  Taboo Cards  */
+.card-display-container {
+  display: flex;
+}
+.card-container {
+  display: grid;
+  background-color: var(--smoke);
+  height: 400px;
+  width: 300px;
+  border-radius: 3%;
+  overflow: hidden;
+  grid-auto-rows: 1fr 4fr;
+}
+.card-title {
+  font-size: var(--large-font);
+  font-weight: 500;
+  padding: var(--regular-size);
+  background-color: var(--light-teal);
+  display: grid;
+  place-items: center; 
+}
+.card-subtitles {
+  font-size: var(--regular-font);
+  padding: 1.5rem var(--regular-size);
+  display: grid;
+  place-items: center; 
+}
+.next-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50px;
+  padding: var(--large-size);
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--smoke);
+  cursor: pointer;
+}
+.next-button:hover {
+  color: var(--light-teal);
+}
+
+/*  GameTimer.js  */
+.timer-container {
+  padding: 10px;
+  border: 1px solid var(--light-teal);
+  margin: var(--regular-size);
+  border-radius: 3%;
+}
+.timer-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--small-size) 0;
+}
+.timer-digit {
+  padding: var(--small-size);
+  font-size: var(--large-font);
+  color: var(--smoke);
+  font-weight: 500;
+  font-family: inherit;
+}
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.timer-control {
+  background-color: var(--light-teal);
+  border-radius: 50%;
+  padding: var(--regular-size);
+  margin: var(--small-size);
+}
+.timer-control:hover {
+  background-color: var(--smoke);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .App { 
+    grid-template-rows: 1fr 5fr;
+    height: 100vh;
+  }
+  header svg {
+    height: 120px;
+  }
+  .card-display-container {
+    margin: 0;
+  }
+  header {
+    font-size: 4.5rem;
+  }
+  main {
+    grid-template-rows: 5fr 3fr;
+  }
+  .card-container {
+    height: 45vh;
+    width: 60vw
+  }
+  .card-title {
+    padding: 0.5rem;
+    font-size: 1.3rem;
+  }
+  .card-subtitles {
+    padding: 0.5rem;
+    font-size: 1.1rem; 
+  }
+  .next-button{
+    padding: 0;
+    font-size: 3rem;
+  }
+  .timer-container {
+    padding: 10px;
+    margin: 0.5rem;
+  }
+  .timer-control {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    font-size: 3.5rem;
+  }
+  .card-title {
+    font-size: 1.2rem;
+  }
+  .card-subtitle {
+    margin-block-start: 0.8em;
+    margin-block-end: 0.8em;
+    font-size: 1rem; 
+  }
+  .timer-digit {
+    font-size: 1.3rem;
+  }  
+  .timer-control {
+    margin: 0.2rem;
+    padding: 0.4rem;
+  }
 }
