@@ -47,7 +47,7 @@ const taboos = [
   {
     category: "country",
     word: "Colombia",
-    tabooWords: ["drug", "cartel", "America", "Che Guevara", "cocaine"],
+    tabooWords: ["drug", "cartel", "America", "cocaine", "Pablo Escobar"],
   },
   {
     category: "country",

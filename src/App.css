@@ -153,12 +153,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--small-size) var(--regular-size);
+  margin: var(--small-size) 0;
 } 
 .timer-control {
   background-color: var(--light-teal);
   border-radius: 50%;
-  padding: var(--regular-size);
+  padding: var(--small-size);
   margin: var(--small-size);
 }
 .timer-control:hover {

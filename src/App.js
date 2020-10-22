@@ -3,10 +3,13 @@ import taboos from './data/taboos'
 import Card from './components/Card'
 import GameTimer from './components/GameTimer'
 import './App.css';
+import characters from './data/characters';
 
 function App() {
   const [randomIndex, setRandomIndex] = useState(0)
-    
+
+  const characterArray = characters.length
+
   function nextCard() {    
     setRandomIndex(Math.floor(Math.random()*taboos.length));    
   }
@@ -23,6 +26,7 @@ function App() {
           <use className="text" xlinkHref="#s-text" />
           <use className="text" xlinkHref="#s-text" />
         </svg>
+        {/*{characterArray}*/}
       </header>      
       <main>
         <div className="card-display-container">
