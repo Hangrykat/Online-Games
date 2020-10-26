@@ -1,5 +1,7 @@
 :root {
   --main-bg-color: #121212;
+  --dark: #121212;
+  --mid-grey: #303030;
   --teal: #3aa1bf;
   --light-teal: #83c5be;
   --turquoise: #56d9cd;
@@ -17,16 +19,71 @@
   text-align: center;
   background-color: var(--main-bg-color);
   height: 100vh;
+  width: 100%;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 0fr 1.5fr 5fr;
 }
 
-/*  Taboo Header  */
-header {
+main {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 7fr 5fr;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/* Menu Button */
+.menu-button-container {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.menu-button {
+  width: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  padding: 30px;
+
+}
+.icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--smoke);
+  transition: .3s;
+}
+.icon-bar + .icon-bar {
+  margin-top: 5px;
+}
+
+/*  Header  */
+.header-container {
+  display: grid;
+  place-items: center;
+}
+
+.header {
   display: grid;
   place-items: center;
   font-weight: bold;
   font-size: 5.5rem;
+}
+.header svg {
+  width: 100%;
 }
 .text {
   fill: none;
@@ -73,55 +130,177 @@ header {
  }
 }
 
-main {
+/*  Home  */
+.home-container {
+  width: 70vw;
+}
+
+.game-container {
   display: grid;
   place-items: center;
-  grid-template-rows: 7fr 5fr;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  margin: var(--small-size);
+  padding: var(--regular-size);
+  border-radius: 3%;
+  border: 1px solid var(--light-teal);
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.game-pic img {
+  width: 100%;
 }
 
 /*  Taboo Cards  */
 .card-display-container {
   display: flex;
 }
+
 .card-container {
-  display: grid;
-  background-color: var(--smoke);
-  height: 400px;
-  width: 280px;
   border-radius: 3%;
   overflow: hidden;
-  grid-auto-rows: 1fr 4fr;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
+
+.card-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card {
+  height: 400px;
+  width: 280px;
+}
+.card .card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.more {
+  display: none;
+}
+.more:checked ~ .card-content {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.card-front .inner, .card-back .inner {
+  height: 100%;
+  transform: translateZ(1px) scale(1);
+}
+.card-front .inner {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  background-color: var(--smoke);
+}
+.card-front:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  backface-visibility: hidden;
+}  
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: var(--mid-grey);
+  color: var(--smoke);
+}
+.card-back .inner {
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+}
+.card-back .inner .title {
+  display: grid;
+  place-items: center;
+}
+.card-back .inner .title-text {
+  position: relative;
+  font-size: var(--large-font);
+  padding: var(--regular-size);
+  font-weight: bold;
+  display: grid;
+}
+.card-back .inner .instructions {
+  display: grid;
+  text-align: left;
+  padding: var(--regular-size)
+}
+.card-back .inner .instructions ul {
+  padding-inline-start: 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+li  {
+  margin: var(--small-size) 0;
+}
+li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--orange)
+}
+
 .card-title {
   font-size: var(--large-font);
   font-weight: 500;
   padding: var(--regular-size);
   background-color: var(--light-teal);
   display: grid;
-  place-items: center; 
+  place-items: center;
+  transform: translateZ(80px) scale(1);
 }
+
 .card-subtitles {
   display: grid;
   place-items: center;
   padding: 1.5rem var(--regular-size);
-  font-size: var(--regular-font); 
+  font-size: var(--regular-font);
 }
 
-.next-button {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.card-button-container {
   width: 50px;
-  padding: var(--large-size);
+  padding: var(--small-size) var(--large-size);
+  display: grid;
+  grid-template-rows: 1fr 10fr;  
+}
+
+.tooltip {
+  font-size: 0.8rem;
+  height: 20px;
+  width: 20px;
+  color: var(--smoke);
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--dark);
+  border-radius: 50%;
+  border: 1px solid var(--smoke);
+}
+
+.next-button-container {
+  display: grid;
+  place-items: center;
+}
+.next-button {  
   font-size: 4rem;
   font-weight: bold;
   color: var(--smoke);
+  cursor: pointer;
+  text-align: center;
   cursor: pointer;
 }
 .next-button:hover {
@@ -136,6 +315,7 @@ main {
   margin: var(--regular-size);
   border-radius: 3%;
 }
+
 .timer-display {
   display: flex;
   justify-content: center;
@@ -149,6 +329,7 @@ main {
   font-weight: 500;
   font-family: inherit;
 }
+
 .timer-controls {
   display: flex;
   justify-content: center;
@@ -167,6 +348,8 @@ main {
   cursor: pointer;
 }
 
+
+/*
 @media only screen and (max-width: 768px) {
   .App { 
     grid-template-rows: 1fr 5fr;
@@ -233,3 +416,4 @@ main {
     padding: 0.4rem;
   }
 }
+*/
