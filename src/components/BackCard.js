@@ -18,10 +18,9 @@ function BackCard(props) {
             ) : (            
                 <div className="instructions">
                     <ul>                    
-                        <li>Recommendation: play a reversed version of 'Guess Who?'. Each player will take turn to ask a 'yes or no' question. </li>
-                        <li>The first person to guess the answer wins.</li>
-                        <li>You may improvise the game with the timer provided.</li>
-                        <li>General design of this app: There isn't any back button. Find your own way around. Don't worry, you'll manage it. </li>
+                        <li>Recommendation: play a reversed version of 'Guess Who?'. Each round, the card holder will give one of the clues (3 words under the character).</li>
+                        <li>Then, each player will take turn to ask a 'yes or no' question. The first person to guess the answer wins. </li>
+                        <li>Note: Choose your clue wisely because you don't want the game to end too soon.</li>                     
                     </ul>
                 </div>)}
 

@@ -12,10 +12,6 @@ import GameTimer from './components/GameTimer'
 import Header from './components/Header'
 import BackCard from './components/BackCard'
 import MenuButton from './components/MenuButton'
-import GameCard from './components/GameCard'
-import tabooImg from './assets/taboo.jpg'
-import guessWhoImg from './assets/guesswho.jpg'
-import charadeImg from './assets/charade.jpg'
 import taboos from './data/taboos'
 import characters from './data/characters'
 import './App.css';
@@ -62,13 +58,15 @@ function App() {
     }
   }  
 
+  const windowsWidth  = window.innerWidth
+
   return (
     <div className="App">
       <div className="header-container">
         <SlidingPanel
           type={'left'}
           isOpen={openPanel}
-          size={25}
+          size={windowsWidth > 900 ? 25 : 50}
         >
           <div style={styles.container}>
             <div style={styles.closeBtn} onClick={() => setOpenPanel(false)}>X</div>
@@ -79,24 +77,23 @@ function App() {
           </SlidingPanel>        
         </div>
 
-
-
         <Switch>
           <Route exact path="/">
-            <Header title="Online Games" />
+            <Header title="Games" />
             <MenuButton clickAction={setOpenPanel}/>
-
             <main>
-              <div className="home-container">
-                <div className="games-container">  
-                  <NavLink to="/taboo" activeStyle={styles.activeLink}><GameCard game="Taboo" img={tabooImg} /></NavLink>
-                  <NavLink to="/guesswho" activeStyle={styles.activeLink}><GameCard game="Guess Who?" img={guessWhoImg} /></NavLink>
-                  <GameCard game="others" img={charadeImg}/>
+              <div className="home-container secondary-dark-bg">
+                <div className="title">Greetings, wanderer!</div>
+                <div className="description">                  
+                  You are here because someone told you about this website. I know this because I didn't touch anything related to SEO.
+                  To date, I've created two games, but.... there will be more in the near future!
+                </div>
+                <div className="buttons-container">
+                  <NavLink to="/taboo"><div className="button">Taboo</div></NavLink>
+                  <NavLink to="/guesswho"><div className="button">Guess Who</div></NavLink>
                 </div>
               </div>
-            </main>
-
-
+            </main> 
           </Route>
         </Switch>
 
@@ -124,7 +121,7 @@ function App() {
                     </div>
                     
                 <div className="card-button-container" >                        
-                  <label htmlFor="instruction-card" className="tooltip" aria-hidden="true">i</label>
+                  <label htmlFor="instruction-card" className="info" aria-hidden="true">i</label>
                   <div className="next-button-container">
                     <div className="next-button" onClick={() => {nextCardTaboo()}}>&gt;</div>
                   </div>                                 
@@ -158,13 +155,13 @@ function App() {
                     </div>
                     
                 <div className="card-button-container" >                        
-                  <label htmlFor="instruction-card" className="tooltip" aria-hidden="true">i</label>
+                  <label htmlFor="instruction-card" className="info" aria-hidden="true">i</label>
                   <div className="next-button-container">
                     <div className="next-button" onClick={() => {nextCardWho()}}>&gt;</div>
                   </div>                                 
                 </div>                            
               </div>
-              <GameTimer />
+
             </main>
           </Route>
         </Switch>

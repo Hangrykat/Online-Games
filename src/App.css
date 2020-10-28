@@ -1,5 +1,6 @@
 :root {
   --main-bg-color: #121212;
+  --secondary-bg-color: #303030;
   --dark: #121212;
   --mid-grey: #303030;
   --teal: #3aa1bf;
@@ -36,6 +37,9 @@ main {
   user-select: none;
 }
 
+.secondary-dark-bg {
+  background-color: var(--secondary-bg-color);
+}
 
 /* Menu Button */
 .menu-button-container {
@@ -82,9 +86,23 @@ main {
   font-weight: bold;
   font-size: 5.5rem;
 }
-.header svg {
-  width: 100%;
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 150px;
 }
+
+.logo-container svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .text {
   fill: none;
   stroke-width: 3;
@@ -132,27 +150,53 @@ main {
 
 /*  Home  */
 .home-container {
-  width: 70vw;
-}
-
-.game-container {
   display: grid;
   place-items: center;
-  margin: var(--small-size);
-  padding: var(--regular-size);
-  border-radius: 3%;
-  border: 1px solid var(--light-teal);
-  overflow: hidden;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  color: var(--smoke);
+  width: 500px;
+  padding: var(--large-size);  
+  border-radius: 2%;
 }
 
-.game-pic img {
-  width: 100%;
+.home-container .title {
+  font-weight: bold;
+  font-size: var(--large-font);
+  color: var(--orange); 
+}
+
+.home-container .description {
+  padding: var(--small-size);
+  font-size: var(--regular-font); 
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--regular-size);
+}
+
+.button {
+  color: var(--orange);
+  font-weight: bold;
+  border: 1px solid var(--orange);
+  padding: var(--small-size);
+  margin: var(--small-size);
+  border-radius: 3%;
+  width: 110px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: var(--dark);
+  background-color: var(--orange);
+  transition: all 0.3s ease 0s;
 }
 
 /*  Taboo Cards  */
 .card-display-container {
   display: flex;
+  justify-content: center;
 }
 
 .card-container {
@@ -279,7 +323,7 @@ li a {
   grid-template-rows: 1fr 10fr;  
 }
 
-.tooltip {
+.info {
   font-size: 0.8rem;
   height: 20px;
   width: 20px;
@@ -349,34 +393,42 @@ li a {
 }
 
 
-/*
+
 @media only screen and (max-width: 768px) {
   .App { 
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 0.5fr 1fr 8fr 0.5fr;
     height: 100vh;
+    width: 100vw;
   }
-  header svg {
-    height: 120px;
+  .header, .menu-button-container {
+    height: 15vh;
+    width: 100vw;
   }
-  .card-display-container {
-    margin: 0;
+  .logo-container {
+    width: 100%;
+    height: 100%;
   }
-  header {
-    font-size: 4.5rem;
+  .menu-button {
+    padding: 20px;
+    width: 25px;
   }
   main {
-    grid-template-rows: 5fr 3fr;
+    grid-template-rows: 2fr 1fr;
   }
-  .card-container {
-    height: 45vh;
-    width: 55vw;
+  .home-container {
+    width: 350px;
   }
-  .card-title {
-    padding: 0.5rem;
-    font-size: 1.3rem;
+
+  .home-container .description{
+    font-size: var(--regular-font);
   }
-  .card-subtitles {
-    font-size: 1.1rem; 
+  .card-button-container {
+    padding: 20px;
+    width: 20px;
+  }
+  .games-container {
+    grid-template-columns: 1fr;
+    width: 300px;
   }
   .next-button{
     padding: 0;
@@ -391,29 +443,3 @@ li a {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  header {
-    font-size: 3.5rem;
-  }
-  .card-title {
-    font-size: 1.2rem;
-  }
-  .card-subtitles {
-    font-size: 1rem; 
-  }
-  .timer-display {
-    margin: 0;
-  }
-  .timer-digit {
-    font-size: 1.3rem;
-  }  
-  .timer-controls {
-    padding: 0;
-    margin: 0 var(--small-size);
-  }
-  .timer-control {
-    margin: 0.5rem;
-    padding: 0.4rem;
-  }
-}
-*/
