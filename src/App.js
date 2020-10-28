@@ -89,8 +89,8 @@ function App() {
                   To date, I've created two games, but.... there will be more in the near future!
                 </div>
                 <div className="buttons-container">
-                  <NavLink to="/taboo"><div className="button">Taboo</div></NavLink>
-                  <NavLink to="/guesswho"><div className="button">Guess Who</div></NavLink>
+                  <NavLink to="/taboo" activeStyle={styles.activeLink}><div className="button">Taboo</div></NavLink>
+                  <NavLink to="/guesswho" activeStyle={styles.activeLink}><div className="button">Guess Who</div></NavLink>
                 </div>
               </div>
             </main> 

@@ -41,6 +41,10 @@ main {
   background-color: var(--secondary-bg-color);
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Menu Button */
 .menu-button-container {
   width: 100%;
@@ -185,6 +189,7 @@ main {
   border-radius: 3%;
   width: 110px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .button:hover {
